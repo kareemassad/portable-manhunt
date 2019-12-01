@@ -6,7 +6,7 @@ public class Tile extends JLabel {
     public Tile() {
 
         this.setVisible(true);
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
 
     }
 
