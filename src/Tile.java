@@ -3,6 +3,9 @@ import java.awt.*;
 
 public class Tile extends JLabel {
 
+    // Attribute for whether the tile is floor (player can stand on it) or tile is wall (player cannot pass through)
+    boolean isFloor = true;
+
     public Tile() {
 
         this.setVisible(true);
@@ -10,4 +13,11 @@ public class Tile extends JLabel {
 
     }
 
+    public boolean isFloor() {
+        return isFloor;
+    }
+
+    public void setFloor(boolean floor) {
+        isFloor = floor;
+    }
 }

@@ -10,20 +10,18 @@ public class Game extends JFrame {
 
         this.setTitle("Man Pac Ultimate Portable Chainsaw");
 
-        JLabel titleText = new JLabel("Insert title");
+        // Creates a title for the game
+        JLabel titleText = new JLabel("Man Pac Ultimate Portable Chainsaw");
         titleText.setForeground(Color.BLACK);
-        int titleWidth = 100;
+        int titleWidth = 300;
         titleText.setHorizontalAlignment(SwingConstants.CENTER);
-        titleText.setBounds((int)(this.getWidth()-titleWidth)/2, 20, titleWidth, 100);
-
+        titleText.setBounds((int)(this.getWidth()-titleWidth)/2, 0, titleWidth, 50);
         this.add(titleText);
         titleText.setVisible(true);
 
-
+        // Creates new Board object, which will be refreshed for each frame
          Board b = new Board();
-
-         b.setBounds((int)(this.getWidth()-b.getWidth())/2, 100, b.getWidth(), b.getHeight());
-
+         b.setBounds((int)(this.getWidth()-b.getWidth())/2, 60, b.getWidth(), b.getHeight());
          this.add(b);
 
         this.setVisible(true);
