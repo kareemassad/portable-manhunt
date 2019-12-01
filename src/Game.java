@@ -9,19 +9,19 @@ import java.io.FileNotFoundException;
 public class Game extends JFrame implements ActionListener {
 
     // Create a timer that triggers every half-second
-    public Timer timer = new Timer(200, this);
+    public Timer timer = new Timer(2, this);
 
     Board b;
 
     public Game() throws FileNotFoundException {
 
-        this.setBounds(100, 100, 500, 530);
+        this.setBounds(100, 100, 600, 670);
         this.setLayout(null);
 
-        this.setTitle("Man Pac Ultimate Portable Chainsaw");
+        this.setTitle("Pac Person Ultimate Portable Chainsaw");
 
         // Creates a title for the game
-        JLabel titleText = new JLabel("Man Pac Ultimate Portable Chainsaw");
+        JLabel titleText = new JLabel("Pac Person Ultimate Portable Chainsaw");
         titleText.setForeground(Color.BLACK);
         int titleWidth = 300;
         titleText.setHorizontalAlignment(SwingConstants.CENTER);

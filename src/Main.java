@@ -6,14 +6,14 @@ public class Main {
 
     // X and Y dimensions for the number of tiles on the board
     // Also useful for checking bounds of the PacPerson coordinates
-    public static int dimX = 15;
-    public static int dimY = 15;
+    public static int dimX = 25;
+    public static int dimY = 25;
 
     // Based on the online thing
     public static int currentPlayerID = 0;
 
     // From map selection
-    public static int map = 2;
+    public static int map = 3;
 
     // List of players
     public static int numberOfPlayers = 1;
@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println("Hello, world!");
 
-        new Game();
+        new frontPage("asdf");
 
     }
 }

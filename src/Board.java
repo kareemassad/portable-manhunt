@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Board extends JPanel implements KeyListener {
 
     // Width and height of the JPanel Board, useful for setBounds from Game
-    private static int width = 400;
-    private static int height = 400;
+    private static int width = 550;
+    private static int height = 550;
 
     public Board() throws FileNotFoundException {
 
