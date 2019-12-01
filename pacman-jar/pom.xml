@@ -14,6 +14,12 @@
   </properties>
 
   <dependencies>
+    <!-- Game Runner -->
+    <dependency>
+      <groupId>com.codingame.gameengine</groupId>
+      <artifactId>runner</artifactId>
+      <version>3.4.1</version>
+    </dependency>
     <!-- Emulator of Java class library for TeaVM -->
     <dependency>
       <groupId>org.teavm</groupId>
