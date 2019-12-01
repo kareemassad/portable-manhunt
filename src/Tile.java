@@ -11,6 +11,7 @@ public class Tile extends JLabel {
     public Tile() {
 
         this.setVisible(true);
+        this.setOpaque(true);
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
 
     }

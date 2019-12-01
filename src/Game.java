@@ -10,6 +10,8 @@ public class Game extends JFrame implements ActionListener, KeyListener {
     // Create a timer that triggers every half-second
     public Timer timer = new Timer(500, this);
 
+    Board b;
+
     public Game() {
 
         this.setBounds(100, 100, 500, 530);
@@ -27,22 +29,37 @@ public class Game extends JFrame implements ActionListener, KeyListener {
         titleText.setVisible(true);
 
         // Creates new Board object, which will be refreshed for each frame
-         Board b = new Board();
-         b.setBounds((int)(this.getWidth()-b.getWidth())/2, 60, b.getWidth(), b.getHeight());
-         this.add(b);
+        b = new Board();
+        b.setBounds((int)(this.getWidth()-b.getWidth())/2, 60, b.getWidth(), b.getHeight());
+        this.add(b);
 
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        initializeSamplePlayers();
 
         // Start timer after the board is created
         timer.start();
 
     }
 
+    public void initializeSamplePlayers() {
+        for (int i = 0; i < Main.numberOfPlayers; i++) {
+            Main.players[i] = new PacPerson(true);
+            Main.players[i].setX(0);
+            Main.players[i].setY(0);
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == timer) {
-            // TODO: Fix timer
+            for (int i = 0; i < Main.numberOfPlayers; i++) {
+                Main.tiles[Main.players[i].getY()][Main.players[i].getX()].setBackground(Color.WHITE);
+                Main.players[i].move();
+                Main.tiles[Main.players[i].getY()][Main.players[i].getX()].setBackground(Main.players[i].getColor());
+            }
+            b.updateBoard();
         }
     }
 

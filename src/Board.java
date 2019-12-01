@@ -23,14 +23,13 @@ public class Board extends JPanel {
             }
         }
 
-
-
         this.setVisible(true);
 
     }
 
     public void updateBoard() {
-        // TODO: Use appropriate refresh methods
+        this.revalidate();
+        this.repaint();
     }
 
     // Getters and setters
