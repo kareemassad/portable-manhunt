@@ -13,6 +13,8 @@ public class Tile extends JLabel {
 
     }
 
+    // Getters and setters
+
     public boolean isFloor() {
         return isFloor;
     }
