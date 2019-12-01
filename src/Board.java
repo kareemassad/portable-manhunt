@@ -11,6 +11,8 @@ public class Board extends JPanel implements KeyListener {
 
     public Board() {
 
+        this.setBackground(Color.WHITE);
+
         // Gridlayout with dimY rows and dimX columns
         this.setLayout(new GridLayout(Main.dimY, Main.dimX));
 

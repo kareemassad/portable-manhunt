@@ -54,7 +54,7 @@ public class PacPerson {
         down = y < Main.dimY-1 && Main.tiles[x][y+1].isFloor();
 
         // Debugging movement
-        System.out.println(currentDirection + " " + x + " " + y);
+        // System.out.println(currentDirection + " " + x + " " + y);
 
         // Moves
         if (currentDirection.equals("up") && up == true){y--;}
