@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Game extends JFrame implements ActionListener {
+public class Game extends JFrame implements ActionListener, KeyListener {
 
     public Timer timer = new Timer(500, this);
 
@@ -42,4 +44,29 @@ public class Game extends JFrame implements ActionListener {
             // TODO: Fix timer
         }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        switch( keyCode ) {
+            case KeyEvent.VK_UP:
+                // handle up
+                break;
+            case KeyEvent.VK_DOWN:
+                // handle down
+                break;
+            case KeyEvent.VK_LEFT:
+                // handle left
+                break;
+            case KeyEvent.VK_RIGHT :
+                // handle right
+                break;
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) { }
+
+    @Override
+    public void keyReleased(KeyEvent e) { }
 }
