@@ -53,11 +53,14 @@ public class PacPerson {
         up = y > 0 && Main.tiles[x][y-1].isFloor();
         down = y < Main.dimY-1 && Main.tiles[x][y+1].isFloor();
 
+        // Debugging movement
+        System.out.println(currentDirection + " " + x + " " + y);
+
         // Moves
-        if (currentDirection.equals("up") && up == true){ y++;}
-        else if(currentDirection.equals("down") && down == true){y--;}
+        if (currentDirection.equals("up") && up == true){y--;}
+        else if(currentDirection.equals("down") && down == true){y++;}
         else if(currentDirection.equals("right") && right == true){x++;}
-        else{x--;}
+        else if(currentDirection.equals("left") && left == true){x--;}
 //        switch (currentDirection)
     }
 
