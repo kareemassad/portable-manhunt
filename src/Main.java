@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 public class Main {
 
     public static Tile[][] tiles;
@@ -7,13 +9,17 @@ public class Main {
     public static int dimX = 15;
     public static int dimY = 15;
 
+    // Based on the online thing
     public static int currentPlayerID = 0;
+
+    // From map selection
+    public static int map = 2;
 
     // List of players
     public static int numberOfPlayers = 1;
     public static PacPerson[] players = new PacPerson[numberOfPlayers];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("Hello, world!");
 

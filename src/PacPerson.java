@@ -39,9 +39,23 @@ public class PacPerson {
     }
 
     //checks
-    private void canMove(){
-        //check right
+    public boolean canMove(String direction){
+        right = x < Main.dimX-1 && Main.tiles[x+1][y].isFloor();
+        left = x > 0 && Main.tiles[x-1][y].isFloor();
+        up = y > 0 && Main.tiles[x][y-1].isFloor();
+        down = y < Main.dimY-1 && Main.tiles[x][y+1].isFloor();
 
+        switch (direction){
+            case "right":
+                return right;
+            case "left":
+                return left;
+            case "up":
+                return up;
+            case "down":
+                return down;
+        }
+        return false;
     }
 
     //moves location based off current direction
