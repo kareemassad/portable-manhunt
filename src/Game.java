@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 public class Game extends JFrame implements ActionListener {
 
     // Create a timer that triggers every half-second
-    public Timer timer = new Timer(500, this);
+    public Timer timer = new Timer(200, this);
 
     Board b;
 
