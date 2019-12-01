@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-
-public class PacPerson extends JLabel {
+//not sure if this need to extend JLabel
+public class PacPerson {
     //Current direction "PacPerson is facing
     private String currentDirection ;
 
@@ -15,21 +15,23 @@ public class PacPerson extends JLabel {
     int x;
     int y;
 
-
-    private PacPerson(int spawnPoint, boolean hunterOrPrey){
+    public PacPerson( boolean hunterOrPrey){
         currentDirection = "right";
 
-        spawn(spawnPoint);
+        //spawn(spawnPoint);
         role = hunterOrPrey;
+        /*
         this.setVisible(true);
         this.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
+        this.setText("A");*/
     }
     public String getDirection(){
         return currentDirection;
     }
 
-
-
+    public void setDirection(String dir){
+        currentDirection = dir;
+    }
 
     //checks
     private void canMove(){
@@ -42,29 +44,6 @@ public class PacPerson extends JLabel {
 
     }
 
-
-
-
-
-
-    //for now we will not randomize spawn location
-    //3 spawn points
-    private void spawn(int spawnPoint){
-        if(spawnPoint == 1){
-            x = 1;
-            y = 1;
-        }
-        else if(spawnPoint == 2){
-            x = 4;
-            y = 4;
-
-        }
-        else{
-            x = 6;
-            y= 8;
-        }
-    }
-
     //moves location based off current direction
     public void move(){
         if (currentDirection == "up" && up == true){ y++;}
@@ -72,12 +51,4 @@ public class PacPerson extends JLabel {
         else if(currentDirection == "down" && right == true){x++;}
         else{x--;}
     }
-
-
-
-
-
-
-
-
 }

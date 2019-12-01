@@ -23,6 +23,8 @@ public class Board extends JPanel {
             }
         }
 
+
+
         this.setVisible(true);
 
     }
