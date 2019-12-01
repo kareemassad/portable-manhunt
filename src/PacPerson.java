@@ -13,18 +13,35 @@ public class PacPerson {
     int y;
 
 
-    public PacPerson(int spawnPoint){
+    public PacPerson(int spawnPoint, boolean hunterOrPrey){
         spawn(spawnPoint);
+        role = hunterOrPrey;
 
     }
     //checks
     public void canMove(){
+        //check right
+        right = doesExist(x+1, y);
+        left = doesExist(x-1,y);
+        up = doesExist(x, y+1);
+        down = doesExist(x, y-1);
+
+    }
+    // checks if location exist
+    private boolean doesExist(int x, int y){
+
+        //change later
+        return true;
 
     }
 
+
+
+
+
     //for now we will not randomize spawn location
     //3 spawn points
-    public void spawn(int spawnPoint){
+    private void spawn(int spawnPoint){
         if(spawnPoint == 1){
             x = 1;
             y = 1;
@@ -40,6 +57,13 @@ public class PacPerson {
         }
     }
 
+
+    public void move(){
+        if (currentDirection == "up" && up == true){ y++;}
+        else if(currentDirection == "down" && down == true){y--;}
+        else if(currentDirection == "down" && right == true){x++;}
+        else{x--;}
+    }
 
 
 
