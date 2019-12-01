@@ -1,56 +1,41 @@
-package test;
+import javax.swing.*;
 
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
+public class frontPage extends JFrame {
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
+    public frontPage() {
 
-public class frontPage extends JButton {
+        setTitle("PACMAN YALL");
+        setSize(400, 400);
 
-    private static final long serialVersionUID = 1L;
-    private Color circleColor = Color.GREEN;
-    public frontPage(String label) {
-        super(label);
+        // Create new buttons and JPanel
+        JButton button1 = new JButton("Map 1");
+        JButton button2 = new JButton("Map 2");
+        JButton button3 = new JButton("Map 3");
+
+        JPanel panel = new JPanel();
+
+        // Add buttons to JPanel
+        panel.add(button1);
+        panel.add(button2);
+        panel.add(button3);
+        // Move Buttons
+        button1.setLayout(null);
+        button1.setLocation(50,250);
+
+        button2.setLayout(null);
+        button2.setLocation(50,250);
+
+        button3.setLayout(null);
+        button3.setLocation(50,250);
+        // And JPanel needs to be added to the JFrame itself
+        this.getContentPane().add(panel);
+
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        Dimension originalSize = super.getPreferredSize();
-        int gap = (int) (originalSize.height * 0.2);
-        int x = originalSize.width + gap;
-        int y = gap;
-        int diameter = originalSize.height - (gap * 2);
-
-        g.setColor(circleColor);
-        g.fillOval(x, y, diameter, diameter);
-    }
-
-    @Override
-    public Dimension getPreferredSize() {
-        Dimension size = super.getPreferredSize();
-        size.width += size.height;
-        return size;
-    }
-
-    /*Test the button*/
     public static void main(String[] args) {
-        frontPage button = new frontPage("Let's Play!! (epic gamer moment)");
 
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 400);
-
-        Container contentPane = frame.getContentPane();
-        contentPane.setLayout(new FlowLayout());
-        contentPane.add(button);
-
-        frame.setVisible(true);
+        frontPage a = new frontPage();
     }
-
 }
