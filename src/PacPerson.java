@@ -1,39 +1,36 @@
-public class PacPerson {
+import javax.swing.*;
+
+public class PacPerson extends JLabel {
     //Current direction "PacPerson is facing
-    String currentDirection ;
+    private String currentDirection ;
 
     //possible directions
-    boolean up,down,left,right;
+    private boolean up,down,left,right;
 
     //role is either hunter or prey true -> hunter, false -> prey
-    boolean role;
+    private boolean role;
 
     //current location (might need to change how i keep location later on)
     int x;
     int y;
 
 
-    public PacPerson(int spawnPoint, boolean hunterOrPrey){
+    private PacPerson(int spawnPoint, boolean hunterOrPrey){
         spawn(spawnPoint);
         role = hunterOrPrey;
 
     }
     //checks
-    public void canMove(){
+    private void canMove(){
         //check right
-        right = doesExist(x+1, y);
-        left = doesExist(x-1,y);
-        up = doesExist(x, y+1);
-        down = doesExist(x, y-1);
+        /*
+        right = isFloor(x+1, y);
+        left = isWall(x-1,y);
+        up = isWall(x, y+1);
+        down = isWall(x, y-1);*/
 
     }
-    // checks if location exist
-    private boolean doesExist(int x, int y){
 
-        //change later
-        return true;
-
-    }
 
 
 
@@ -57,13 +54,15 @@ public class PacPerson {
         }
     }
 
-
+    //moves location based off current direction
     public void move(){
         if (currentDirection == "up" && up == true){ y++;}
         else if(currentDirection == "down" && down == true){y--;}
         else if(currentDirection == "down" && right == true){x++;}
         else{x--;}
     }
+
+
 
 
 
