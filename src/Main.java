@@ -12,18 +12,25 @@ public class Main {
     // Based on the online thing
     public static int currentPlayerID = 0;
 
+
+
+
+    //
+
     // From map selection
     public static int map = 3;
 
     // List of players
-    public static int numberOfPlayers = 1;
+    public static int numberOfPlayers = 4;
     public static PacPerson[] players = new PacPerson[numberOfPlayers];
+
 
     public static void main(String[] args) throws FileNotFoundException {
 
+
         System.out.println("Hello, world!");
 
-        new frontPage("asdf");
+        new Game();
 
     }
 }

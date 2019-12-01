@@ -85,30 +85,102 @@ public class Board extends JPanel implements KeyListener {
 
     // This is for the current player
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyPressed (KeyEvent e) {
         int keyCode = e.getKeyChar();
+        int c = e.getKeyCode();
         switch(keyCode) {
             case 'w':
-                if (Main.players[Main.currentPlayerID].canMove("up"))
-                    Main.players[Main.currentPlayerID].setDirection("up");
+                if (Main.players[0].canMove("up"))
+                    Main.players[0].setDirection("up");
+
                 break;
             case 's':
-                if (Main.players[Main.currentPlayerID].canMove("down"))
-                    Main.players[Main.currentPlayerID].setDirection("down");
+                if (Main.players[0].canMove("down"))
+                    Main.players[0].setDirection("down");
+                //send to client or server
+
                 break;
             case 'a':
-                if (Main.players[Main.currentPlayerID].canMove("left"))
-                    Main.players[Main.currentPlayerID].setDirection("left");
+                if (Main.players[0].canMove("left"))
+                    Main.players[0].setDirection("left");
+                //send to client or server
+
                 break;
             case 'd':
-                if (Main.players[Main.currentPlayerID].canMove("right"))
-                    Main.players[Main.currentPlayerID].setDirection("right");
+                if (Main.players[0].canMove("right"))
+                    Main.players[0].setDirection("right");
                 break;
+            case 'u':
+                if (Main.players[1].canMove("up"))
+                    Main.players[1].setDirection("up");
+                break;
+            case 'h':
+                if (Main.players[1].canMove("left"))
+                    Main.players[1].setDirection("left");
+                break;
+            case 'j':
+                if (Main.players[1].canMove("down"))
+                    Main.players[1].setDirection("down");
+                break;
+            case 'k':
+                if (Main.players[1].canMove("right"))
+                    Main.players[1].setDirection("right");
+                break;
+            case KeyEvent.VK_DOWN:
+                if (Main.players[2].canMove("down"))
+                    Main.players[2].setDirection("down");
+                break;
+            case KeyEvent.VK_RIGHT:
+                if (Main.players[2].canMove("right"))
+                    Main.players[2].setDirection("right");
+                break;
+            case KeyEvent.VK_UP:
+                if (Main.players[2].canMove("up"))
+                    Main.players[2].setDirection("up");
+                break;
+            case KeyEvent.VK_LEFT:
+                if (Main.players[2].canMove("left"))
+                    Main.players[2].setDirection("left");
+                break;
+            case '8':
+                if (Main.players[3].canMove("up"))
+                    Main.players[3].setDirection("up");
+                break;
+            case '4':
+                if (Main.players[3].canMove("left"))
+                    Main.players[3].setDirection("left");
+                break;
+            case '2':
+                if (Main.players[3].canMove("down"))
+                    Main.players[3].setDirection("down");
+                break;
+            case '5':
+                if (Main.players[3].canMove("right"))
+                    Main.players[3].setDirection("right");
+                break;
+
+        }
+
+        if (c == 38) {
+            if (Main.players[2].canMove("up"))
+                Main.players[2].setDirection("up");
+        }
+        if(c == 40){
+            if (Main.players[2].canMove("down"))
+                Main.players[2].setDirection("down");
+        }
+        if(c == 39){
+            if (Main.players[2].canMove("right"))
+                Main.players[2].setDirection("right");
+        }
+        if(c == 37){
+            if (Main.players[2].canMove("left"))
+                Main.players[2].setDirection("left");
         }
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {
 
     }
 

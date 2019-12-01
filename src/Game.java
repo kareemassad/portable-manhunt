@@ -47,11 +47,28 @@ public class Game extends JFrame implements ActionListener {
     }
 
     public void initializeSamplePlayers() {
-        for (int i = 0; i < Main.numberOfPlayers; i++) {
-            Main.players[i] = new PacPerson(true);
-            Main.players[i].setX(1);
-            Main.players[i].setY(1);
-        }
+
+        Main.players[0] = new PacPerson(true);
+        Main.players[0].setX(23);
+        Main.players[0].setY(23);
+
+        Main.players[1] = new PacPerson(false);
+        Main.players[1].setX(1);
+        Main.players[1].setY(1);
+
+        Main.players[2] = new PacPerson(false);
+        Main.players[2].setX(23);
+        Main.players[2].setY(1);
+
+        Main.players[3] = new PacPerson(false);
+        Main.players[3].setX(1);
+        Main.players[3].setY(23);
+
+
+
+
+
+
     }
 
     @Override
