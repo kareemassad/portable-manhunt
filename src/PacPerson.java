@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class PacPerson extends JLabel {
     //Current direction "PacPerson is facing
@@ -16,18 +17,28 @@ public class PacPerson extends JLabel {
 
 
     private PacPerson(int spawnPoint, boolean hunterOrPrey){
+        currentDirection = "right";
+
         spawn(spawnPoint);
         role = hunterOrPrey;
-
+        this.setVisible(true);
+        this.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
     }
+    public String getDirection(){
+        return currentDirection;
+    }
+
+
+
+
     //checks
     private void canMove(){
         //check right
-        /*
-        right = isFloor(x+1, y);
-        left = isWall(x-1,y);
-        up = isWall(x, y+1);
-        down = isWall(x, y-1);*/
+
+        right = Main.tiles[x+1][y].isFloor();
+        left = Main.tiles[x-1][y].isFloor();
+        up = Main.tiles[x][y+1].isFloor();
+        down = Main.tiles[x][y-1].isFloor();
 
     }
 
