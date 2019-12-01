@@ -40,10 +40,10 @@ public class PacPerson {
 
     //checks
     public boolean canMove(String direction){
-        right = x < Main.dimX-1 && Main.tiles[x+1][y].isFloor();
-        left = x > 0 && Main.tiles[x-1][y].isFloor();
-        up = y > 0 && Main.tiles[x][y-1].isFloor();
-        down = y < Main.dimY-1 && Main.tiles[x][y+1].isFloor();
+        right = x < Main.dimX-1 && Main.tiles[y][x+1].isFloor();
+        left = x > 0 && Main.tiles[y][x-1].isFloor();
+        up = y > 0 && Main.tiles[y-1][x].isFloor();
+        down = y < Main.dimY-1 && Main.tiles[y+1][x].isFloor();
 
         switch (direction){
             case "right":
@@ -62,10 +62,10 @@ public class PacPerson {
     public void move(){
 
         // Checks for walls
-        right = x < Main.dimX-1 && Main.tiles[x+1][y].isFloor();
-        left = x > 0 && Main.tiles[x-1][y].isFloor();
-        up = y > 0 && Main.tiles[x][y-1].isFloor();
-        down = y < Main.dimY-1 && Main.tiles[x][y+1].isFloor();
+        right = x < Main.dimX-1 && Main.tiles[y][x+1].isFloor();
+        left = x > 0 && Main.tiles[y][x-1].isFloor();
+        up = y > 0 && Main.tiles[y-1][x].isFloor();
+        down = y < Main.dimY-1 && Main.tiles[y+1][x].isFloor();
 
         // Debugging movement
         // System.out.println(currentDirection + " " + x + " " + y);
