@@ -1,39 +1,29 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Board extends JPanel implements ActionListener {
-
-    // X and Y dimensions for the number of tiles on the board
-    private static int dimX = 15;
-    private static int dimY = 15;
+public class Board extends JPanel {
 
     // Width and height of the JPanel Board, useful for setBounds from Game
     private static int width = 400;
     private static int height = 400;
 
-    public Timer timer = new Timer(500, this);
-
     public Board() {
 
         // Gridlayout with dimY rows and dimX columns
-        this.setLayout(new GridLayout(dimY, dimX));
+        this.setLayout(new GridLayout(Main.dimY, Main.dimX));
 
         // Array of Tile objects to add PacPerson to when the game is in progress
-        Tile[][] tiles = new Tile[dimY][dimX];
+        Main.tiles = new Tile[Main.dimY][Main.dimX];
 
         // Assigns default Tile object to every position in the tiles array
-        for (int i = 0; i < dimY; i++) {
-            for (int j = 0; j < dimX; j++) {
-                tiles[i][j] = new Tile();
-                this.add(tiles[i][j]);
+        for (int i = 0; i < Main.dimY; i++) {
+            for (int j = 0; j < Main.dimX; j++) {
+                Main.tiles[i][j] = new Tile();
+                this.add(Main.tiles[i][j]);
             }
         }
 
         this.setVisible(true);
-
-        timer.start();
 
     }
 
@@ -59,10 +49,4 @@ public class Board extends JPanel implements ActionListener {
         Board.height = height;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == timer) {
-            // TODO: Fix timer
-        }
-    }
 }

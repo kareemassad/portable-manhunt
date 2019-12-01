@@ -1,7 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Game extends JFrame {
+public class Game extends JFrame implements ActionListener {
+
+    public Timer timer = new Timer(500, this);
 
     public Game() {
 
@@ -27,5 +31,15 @@ public class Game extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        // Start timer after the board is created
+        timer.start();
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == timer) {
+            // TODO: Fix timer
+        }
     }
 }
