@@ -7,6 +7,10 @@ public class Main {
     public static int dimX = 15;
     public static int dimY = 15;
 
+    // List of players
+    public static int numberOfPlayers = 1;
+    public static PacPerson[] players = new PacPerson[numberOfPlayers];
+
     public static void main(String[] args) {
 
         System.out.println("Hello, world!");
