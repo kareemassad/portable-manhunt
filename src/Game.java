@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 
 public class Game extends JFrame implements ActionListener, KeyListener {
 
+    // Create a timer that triggers every half-second
     public Timer timer = new Timer(500, this);
 
     public Game() {
