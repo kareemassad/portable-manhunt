@@ -7,6 +7,8 @@ public class Main {
     public static int dimX = 15;
     public static int dimY = 15;
 
+    public static int currentPlayerID = 0;
+
     // List of players
     public static int numberOfPlayers = 1;
     public static PacPerson[] players = new PacPerson[numberOfPlayers];

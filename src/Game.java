@@ -33,6 +33,9 @@ public class Game extends JFrame implements ActionListener, KeyListener {
         b.setBounds((int)(this.getWidth()-b.getWidth())/2, 60, b.getWidth(), b.getHeight());
         this.add(b);
 
+        // TODO: Fix
+        b.addKeyListener(this);
+
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -63,21 +66,23 @@ public class Game extends JFrame implements ActionListener, KeyListener {
         }
     }
 
+    // This is for the current player
     @Override
     public void keyTyped(KeyEvent e) {
         int keyCode = e.getKeyCode();
-        switch( keyCode ) {
+        System.out.println(keyCode);
+        switch(keyCode) {
             case KeyEvent.VK_UP:
-                // handle up
+                Main.players[Main.currentPlayerID].setDirection("up");
                 break;
             case KeyEvent.VK_DOWN:
-                // handle down
+                Main.players[Main.currentPlayerID].setDirection("down");
                 break;
             case KeyEvent.VK_LEFT:
-                // handle left
+                Main.players[Main.currentPlayerID].setDirection("left");
                 break;
             case KeyEvent.VK_RIGHT :
-                // handle right
+                Main.players[Main.currentPlayerID].setDirection("right");
                 break;
         }
     }
