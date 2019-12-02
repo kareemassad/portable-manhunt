@@ -10,7 +10,7 @@ public class PacPerson {
     private boolean up, down, left, right;
 
     //role is either hunter or prey true -> hunter, false -> prey
-    private boolean isHunter;
+    public boolean isHunter;
 
     // Color of the PacPerson: red -> hunter, green -> prey
     private Color color;
@@ -20,7 +20,7 @@ public class PacPerson {
     int y;
 
     public PacPerson(boolean isHunter){
-        currentDirection = "right";
+        currentDirection = "";
 
         //spawn(spawnPoint);
         this.isHunter = isHunter;

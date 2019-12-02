@@ -2,14 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 
 public class Game extends JFrame implements ActionListener {
 
+    boolean activatedEnd = false;
+
     // Create a timer that triggers every half-second
-    public Timer timer = new Timer(2, this);
+    int delay = 100;
+    public Timer timer = new Timer(delay, this);
+    public Timer secondTimer = new Timer(10, this);
+    JLabel endTimer;
+    double timeLeft = 10.0;
 
     Board b;
 
@@ -29,17 +33,24 @@ public class Game extends JFrame implements ActionListener {
         this.add(titleText);
         titleText.setVisible(true);
 
+        // endTimer
+        endTimer = new JLabel(Double.toString(timeLeft));
+        endTimer.setForeground(Color.BLACK);
+        endTimer.setHorizontalAlignment(SwingConstants.CENTER);
+        endTimer.setBounds((int)(this.getWidth()-titleWidth)/2, 0, titleWidth, 80);
+        this.add(endTimer);
+        endTimer.setVisible(true);
+
         // Creates new Board object, which will be refreshed for each frame
         b = new Board();
         b.setBounds((int)(this.getWidth()-b.getWidth())/2, 60, b.getWidth(), b.getHeight());
         this.add(b);
 
-        // TODO: Fix
-
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         initializeSamplePlayers();
+        detectCollision();
 
         // Start timer after the board is created
         timer.start();
@@ -64,11 +75,60 @@ public class Game extends JFrame implements ActionListener {
         Main.players[3].setX(1);
         Main.players[3].setY(23);
 
+    }
 
+    public void detectCollision() throws FileNotFoundException {
+        for (int i = 0; i < Main.numberOfPlayers; i++) {
+            for (int j = i+1; j < Main.numberOfPlayers; j++) {
+                if (Main.players[i].getX() == Main.players[j].getX() && Main.players[i].getY() == Main.players[j].getY()) {
+                    if (Main.players[i].isHunter || Main.players[j].isHunter) {
+                        Main.players[i].isHunter = true;
+                        Main.players[j].isHunter = true;
+                        Main.players[i].setColor();
+                        Main.players[j].setColor();
+                        System.out.println(Main.hunters);
+                        repaint();
+                        revalidate();
+                    }
+                }
+            }
+        }
+        int count = 0;
+        for (PacPerson p : Main.players) {
+            if (p.isHunter) count++;
+            delay /= Math.pow(100, Main.hunters - count);
+            Main.hunters = count;
+        }
 
+        boolean end = false;
 
+        if (Main.hunters == 3 && activatedEnd == false) {
+            secondTimer.start();
+            activatedEnd = true;
+        } else if (Main.hunters == 4) {
+            timer.stop();
+            secondTimer.stop();
+            JOptionPane.showMessageDialog(this, "Game over! Hunters won", "HMMMM", JOptionPane.INFORMATION_MESSAGE);
+            end = true;
+        } else if (timeLeft <= 0) {
+            timer.stop();
+            secondTimer.stop();
+            JOptionPane.showMessageDialog(this, "Game over! Prey won", "WOHOO", JOptionPane.INFORMATION_MESSAGE);
+            end = true;
+        }
 
+        if (end) {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Try again?", "DO IT!", dialogButton);
 
+            if(dialogResult == 0) {
+                Main.g.dispose();
+                Main.g = new Game();
+            } else {
+                this.dispose();
+                System.exit(0);
+            }
+        }
     }
 
     @Override
@@ -79,7 +139,20 @@ public class Game extends JFrame implements ActionListener {
                 Main.players[i].move();
                 Main.tiles[Main.players[i].getY()][Main.players[i].getX()].setBackground(Main.players[i].getColor());
             }
+            System.out.println(delay);
             b.updateBoard();
+            try {
+                detectCollision();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
         }
+        if (e.getSource() == secondTimer) {
+            timeLeft -= 0.04;
+            System.out.println(timeLeft);
+            endTimer.setText(Double.toString((int)timeLeft));
+            endTimer.paintImmediately(endTimer.getVisibleRect());
+        }
+
     }
 }

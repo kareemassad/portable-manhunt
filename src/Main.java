@@ -2,12 +2,16 @@ import java.io.FileNotFoundException;
 
 public class Main {
 
+    public static Game g;
+
     public static Tile[][] tiles;
 
     // X and Y dimensions for the number of tiles on the board
     // Also useful for checking bounds of the PacPerson coordinates
     public static int dimX = 25;
     public static int dimY = 25;
+
+    public static int hunters = 1;
 
     // Based on the online thing
     public static int currentPlayerID = 0;
@@ -30,7 +34,7 @@ public class Main {
 
         System.out.println("Hello, world!");
 
-        new Game();
+        g = new Game();
 
     }
 }
