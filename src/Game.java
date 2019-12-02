@@ -13,7 +13,7 @@ public class Game extends JFrame implements ActionListener {
     public Timer timer = new Timer(delay, this);
     public Timer secondTimer = new Timer(10, this);
     JLabel endTimer;
-    double timeLeft = 10.0;
+    double timeLeft = 25.0;
 
     Board b;
 
